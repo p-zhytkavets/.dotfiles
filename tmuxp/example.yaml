@@ -1,0 +1,12 @@
+session_name: 3-panes1
+windows:
+  - window_name: dev window1
+    layout: main-vertical
+    shell_command_before:
+      - cd ~/
+    panes:
+      - shell_command:
+          - cd /var/log
+          - ls -al | grep \.log
+      - echo hello
+      - echo hello1
