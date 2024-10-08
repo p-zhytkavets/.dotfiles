@@ -102,13 +102,11 @@ config_sudoers() {
 		MENU_VARIANTS=("Yes" "No")
 		menu
 		stop_log
-		su
 		if [[ "$MENU_ANSWER" == "Yes" ]]; then
-			echo "$USER ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
+			su root -c echo "$USER ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
 		else
-			echo "$USER ALL=(ALL:ALL) ALL" | EDITOR='tee -a' visudo
+			su root -c echo "$USER ALL=(ALL:ALL) ALL" | EDITOR='tee -a' visudo
 		fi
-		exit
 		start_log
 	fi
 }
