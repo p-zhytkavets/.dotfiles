@@ -101,11 +101,14 @@ config_sudoers() {
 		PS3="NOPASSWD?"
 		MENU_VARIANTS=("Yes" "No")
 		menu
+
+		su
 		if [[ "$MENU_ANSWER" == "Yes" ]]; then
 			echo "$USER ALL=(ALL) NOPASSWD: ALL" | sudo EDITOR='tee -a' visudo
 		else
 			echo "$USER ALL=(ALL:ALL) ALL" | sudo EDITOR='tee -a' visudo
 		fi
+		exit
 	fi
 }
 
