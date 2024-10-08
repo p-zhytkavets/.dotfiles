@@ -15,7 +15,7 @@ install() {
 	fi
 
 	cd "$ZDOTDIR/plugins" && {
-		curl curl -L git.io/antigen >antigen.zsh
+		curl -r git.io/antigen >antigen.zsh
 		cd -
 	}
 
@@ -26,8 +26,11 @@ install() {
 	MENU_VARIANTS=("Yes" "No")
 	menu
 	if [[ "$MENU_ANSWER" == "Yes" ]]; then
-		chsh -s $(which zsh)
+		stop_log
+		sudo chsh -s $(which zsh)
+		start_log
 	fi
+	echo 123
 }
 
 if [[ "$1" == "-p" ]]; then

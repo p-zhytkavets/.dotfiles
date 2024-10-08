@@ -31,7 +31,7 @@ install() {
 		return
 	fi
 
-	sudo curl https://rclone.org/install.sh | sudo bash
+	curl https://rclone.org/install.sh | bash
 
 	ln -sf "$DOTFILES/systemd/user/rclone@.service" "$HOME/.config/systemd/user/rclone@.service"
 	systemctl --user daemon-reload
