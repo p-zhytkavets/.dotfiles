@@ -103,11 +103,11 @@ config_sudoers() {
 		menu
 		stop_log
 		if [[ "$MENU_ANSWER" == "Yes" ]]; then
-			sudo -u root bash <<'EOF'
+			su <<'EOF'
 echo "$USER ALL=(ALL) NOPASSWD: ALL" | EDITOR='tee -a' visudo
 EOF
 		else
-			sudo -u root bash <<'EOF'
+			su <<'EOF'
 echo "$USER ALL=(ALL:ALL) ALL" | EDITOR='tee -a' visudo
 EOF
 		fi

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo -u root bash <<EOF
+su <<EOF
 echo "In"
 whoami
 EOF
